@@ -1,0 +1,4 @@
+chromedriver.log
+.rbenv-vars
+run.log
+cron_log.log
