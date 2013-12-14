@@ -34,4 +34,4 @@ Remove the zip file:
 
 Ready!
 ---
-You are now ready to run `ruby run.rb`
+You are now ready to run `rake check_bank`
