@@ -15,7 +15,14 @@ set :rbenv_ruby, File.read('.ruby-version').strip
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_env, {
+  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/.nodenv/shims:$HOME/.nodenv/bin:$PATH"
+}
+
+set :rbenv_ruby, '2.0.0-p247'
 # set :keep_releases, 5
+
+set :rbenv_map_bins, %w{rake gem bundle ruby rails whenever}
 
 namespace :deploy do
 
@@ -23,7 +30,7 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-       execute :whenever, '-w' 
+       #execute :whenever, '-w' 
     end
   end
 
