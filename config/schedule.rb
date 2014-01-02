@@ -6,6 +6,7 @@
 # Example:
 #
 set :output, "cron_log.log"
+set :job_template, "bash -lc ':job'"
 #
 every 1.minutes do
   rake :check_bank
