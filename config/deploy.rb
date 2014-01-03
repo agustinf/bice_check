@@ -29,11 +29,17 @@ namespace :deploy do
   desc 'Sets the environmental variables'
   task :env_set do
     on roles(:app) do
-      execute "ln -s /home/deploy/applications/bank_checker/shared/.rbenv-vars /home/deploy/applications/bank_checker/current/.rbenv-vars" 
+      execute "ln -s /home/deploy/applications/bank_checker/shared/.rbenv-vars #{release_path}/.rbenv-vars" 
     end
   end
 
-  before :updated, 'deploy:env_set'
+  task :restart do
+    on roles(:app), in: :sequence, wait: 5 do
+
+    end
+  end
+
+  after 'deploy:symlink:shared', 'deploy:env_set'
 
   after :finishing, 'deploy:cleanup'
 
