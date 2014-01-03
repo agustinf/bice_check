@@ -8,7 +8,7 @@
 set :output, "cron_log.log"
 set :job_template, "bash -lc ':job'"
 #
-every 1.minutes do
+every 5.minutes do
   rake :check_bank
 end
 #
