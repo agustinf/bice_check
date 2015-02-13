@@ -19,7 +19,7 @@ set :default_env, {
   'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/.nodenv/shims:$HOME/.nodenv/bin:$PATH"
 }
 
-set :rbenv_ruby, '2.0.0-p247'
+set :rbenv_ruby, '2.0.0'
 # set :keep_releases, 5
 
 set :rbenv_map_bins, %w{rake gem bundle ruby rails whenever}
@@ -29,7 +29,7 @@ namespace :deploy do
   desc 'Sets the environmental variables'
   task :env_set do
     on roles(:app) do
-      execute "ln -s /home/deploy/applications/bank_checker/shared/.rbenv-vars #{release_path}/.rbenv-vars" 
+      execute "ln -s /home/deploy/applications/bank_checker/shared/.rbenv-vars #{release_path}/.rbenv-vars"
     end
   end
 
